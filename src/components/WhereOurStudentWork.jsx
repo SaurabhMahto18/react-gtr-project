@@ -1,15 +1,15 @@
 import React from "react";
 
-import eyLogo from "./assets/ey.png";
-import dellLogo from "./assets/Dell.png";
-import bcgLogo from "./assets/bcg.webp";
-import vodafoneLogo from "./assets/Vodafone.png";
-import hpLogo from "./assets/hp.jpg";
-import boschLogo from "./assets/bosch.jpg";
-import mphasisLogo from "./assets/mphasis.png";
-import airbusLogo from "./assets/airbus.png";
-import worldBankLogo from "./assets/World-Bank.jpg";
-import worldMapImg from "./assets/world-map.jpg";
+import eyLogo from "../assets/ey.png";
+import dellLogo from "../assets/Dell.png";
+import bcgLogo from "../assets/bcg.webp";
+import vodafoneLogo from "../assets/Vodafone.png";
+import hpLogo from "../assets/hp.jpg";
+import boschLogo from "../assets/bosch.jpg";
+import mphasisLogo from "../assets/mphasis.png";
+import airbusLogo from "../assets/airbus.png";
+import worldBankLogo from "../assets/World-Bank.jpg";
+import worldMapImg from "../assets/world-map.jpg";
 
 const companies = [
   { name: "EY", logo: eyLogo },
@@ -23,7 +23,7 @@ const companies = [
   { name: "World Bank", logo: worldBankLogo },
 ];
 
-export const WhereOurStudentWork = () => {
+const WhereOurStudentWork = () => {
   return (
     <section className="bg-[#f0f6ff] py-12 px-6 h-[90vh]">
         <div className="max-w-[1360px] mx-auto flex flex-col justify-around lg:flex-row items-center lg:items-start gap-0">
@@ -74,3 +74,5 @@ export const WhereOurStudentWork = () => {
     </section>
   );
 };
+
+export default WhereOurStudentWork;

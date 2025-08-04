@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-
+import { Link } from "react-router-dom";
 import { IoArrowForwardOutline } from "react-icons/io5";
 
 import "swiper/css";
@@ -12,10 +12,10 @@ import "swiper/css/pagination";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
-import slide1 from "./assets/hero-bg1.jpg";
-import slide2 from "./assets/hero-bg2.jfif";
-import slide3 from "./assets/hero-bg3.jpg";
-import slide4 from "./assets/Form.webp";
+import slide1 from "../assets/hero-bg1.jpg";
+import slide2 from "../assets/hero-bg2.jfif";
+import slide3 from "../assets/hero-bg3.jpg";
+import slide4 from "../assets/Form.webp";
 
 const images = [slide1, slide2, slide3, slide4];
 

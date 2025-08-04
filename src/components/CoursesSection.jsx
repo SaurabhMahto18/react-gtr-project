@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoSearch } from "react-icons/io5";
-import courseimg from './assets/course-img1.png';
+import courseimg from '../assets/course-img1.png';
+import { Link } from "react-router-dom";
 
 const categories = ["SAP Functional", "SAP Technical", "SAP Success Factor","Data Science","Python with Fast API", "VLSI"];
 // const selectedCategory = "SAP Technical"; // for default highlight
@@ -13,8 +14,9 @@ const courses = Array(6).fill({
   
 });
 
-export const CoursesSection = () => {
+const CoursesSection = () => {
   const [active, setActive] = useState("SAP Technical");
+  
 
   return (
       <section className="bg-[#f0f6ff] py-10 min-h-screen">
@@ -65,7 +67,7 @@ export const CoursesSection = () => {
           {courses.map((course, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-lg shadow-md p-4 flex flex-col items-start text-start"
+              className="bg-white rounded-lg shadow-md p-4 flex flex-col items-start text-start hover:shadow-xl hover:scale-[1.01] transition duration-600 ease-in-out"
             >
               <img
                 src={courseimg}
@@ -78,9 +80,11 @@ export const CoursesSection = () => {
               <div className="bg-gray-300 px-3 py-1 rounded-full text-sm font-semibold mb-3">
                 📆 {course.duration}
               </div>
-              <button className="bg-blue-600 text-white px-4 py-2 w-full rounded shadow hover:bg-blue-700">
-                View Details
-              </button>
+              <Link to="/courses" className="bg-blue-600 text-white text-center px-4 py-2 w-full rounded shadow hover:bg-blue-700">
+                <button >
+                  View Details
+                </button>
+              </Link>
             </div>
           ))}
         </div>
@@ -97,3 +101,4 @@ export const CoursesSection = () => {
 
   );
 };
+export default CoursesSection;

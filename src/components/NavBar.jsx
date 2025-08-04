@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import logo from "./assets/GTR-Orginal-logo-.webp";
+import logo from "../assets/GTR-Orginal-logo-.webp";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { IoSearch } from "react-icons/io5";
 
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,20 +13,18 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-[#182261] text-white shadow-md">
-
       <div className=" flex items-center justify-evenly px-6 py-4">
         {/* Logo */}
-        <div className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img src={logo} alt="Logo" className="h-12" />
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <a href="#">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
-              All Courses
-            </button>
-          </a>
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            All Courses
+          </button>
+
           <div className="flex border border-gray-300 rounded overflow-hidden">
             <input
               type="text"
@@ -36,15 +35,21 @@ const Navbar = () => {
               <IoSearch />
             </button>
           </div>
-          </nav>
-          <div className="hidden md:flex space-x-6">
-            <a href="#" className="hover:underline">Home</a>
-            <a href="#" className="hover:underline">About</a>
-            <a href="#" className="hover:underline">FAQs</a>
-            <a href="#" className="hover:underline">Contact Us</a>
-          </div>
-
-        
+        </nav>
+        <div className="hidden md:flex space-x-6">
+          <Link to="/" className="hover:underline">
+            Home
+          </Link>
+          <a href="#" className="hover:underline">
+            About
+          </a>
+          <a href="#" className="hover:underline">
+            FAQs
+          </a>
+          <a href="#" className="hover:underline">
+            Contact Us
+          </a>
+        </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex justify-between">
@@ -72,10 +77,18 @@ const Navbar = () => {
               <IoSearch />
             </button>
           </div>
-          <a href="#" className="hover:underline">Home</a>
-          <a href="#" className="hover:underline">About</a>
-          <a href="#" className="hover:underline">FAQs</a>
-          <a href="#" className="hover:underline">Contact Us</a>
+          <Link to="/" className="hover:underline">
+            Home
+          </Link>
+          <a href="#" className="hover:underline">
+            About
+          </a>
+          <a href="#" className="hover:underline">
+            FAQs
+          </a>
+          <a href="#" className="hover:underline">
+            Contact Us
+          </a>
         </div>
       )}
     </header>

@@ -5,14 +5,14 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-// import "swiper/css/pagination";
+import "swiper/css/pagination";
 
-import img1 from "./assets/test-thumbnail1.jpg";
-import img2 from "./assets/test-thumbnail2.jpg";
-import img3 from "./assets/test-thumbnail3.jpg";
-import img4 from "./assets/test-thumbnail4.jpg";
+import img1 from "../assets/test-thumbnail1.jpg";
+import img2 from "../assets/test-thumbnail2.jpg";
+import img3 from "../assets/test-thumbnail3.jpg";
+import img4 from "../assets/test-thumbnail4.jpg";
 
-const images = [img1, img2, img3];
+const images = [img1, img2, img3, img4];
 
 const testimonials = [
   {
@@ -86,12 +86,12 @@ const AlumniSection = () => {
       <div className="max-w-[1360px] mx-auto px-4">
         {/* Header & Stats */}
         <div className="mb-10 flex justify-between">
-          <div className="text-left mt-24 flex flex-col">
+          <div className="text-left mt-8 flex flex-col">
             <p className="text-xl font-medium">Hear It</p>
             <p className="text-3xl font-semibold text-blue-800">
               from our Alumni
             </p>
-            <div className="text-start mt-12">
+            <div className="text-start mt-8">
               <p className="text-4xl text-blue-600 font-bold">10,000+</p>
               <p className="text-2xl font-medium">Students Trained</p>
             </div>
@@ -100,22 +100,36 @@ const AlumniSection = () => {
               <p className="text-2xl font-medium">Facilitated Placements</p>
             </div>
           </div>
-          
-            
-          
-          <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
-            {images.map((src, index) => (
-              <div
-                key={index}
-                className="w-[300px] aspect-[9/16] overflow-hidden rounded-xl shadow"
-              >
-                <img
-                  src={src}
-                  alt={`Image ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
+
+          <div className="w-full max-w-2xl">
+            <Swiper
+              modules={[Pagination, Navigation, Autoplay]}
+              navigation
+              pagination={{clickable : true}}
+              autoplay={{ delay: 2500 }}
+              loop
+              speed={1200}
+              spaceBetween={20}
+              slidesPerView={1}
+              breakpoints={{
+                640: {
+                  slidesPerView: 3,
+                },
+                
+              }}
+            >
+              {images.map((src, index) => (
+                <SwiperSlide key={index}>
+                  <div className="w-full aspect-[9/16] overflow-hidden rounded-xl shadow">
+                    <img
+                      src={src}
+                      alt={`Image ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
 
@@ -124,7 +138,7 @@ const AlumniSection = () => {
           modules={[Navigation, Autoplay]}
           navigation
           pagination={{ clickable: true }}
-          autoplay={{delay:3000}}
+          autoplay={{ delay: 3000 }}
           speed={1500}
           spaceBetween={30}
           slidesPerView={1}
@@ -139,7 +153,7 @@ const AlumniSection = () => {
             (_, i) => (
               <SwiperSlide key={i}>
                 <div className="grid md:grid-cols-2 gap-6">
-                  {testimonials.slice(i * 2, i * 2 + 2).map((item, j) => (
+                  {testimonials.slice(i, i + 2).map((item, j) => (
                     <div
                       key={j}
                       className="flex flex-col justify-between h-full border shadow-md border-b-4 border-b-blue-600 p-6 rounded-md bg-white"
@@ -173,7 +187,6 @@ const AlumniSection = () => {
           )}
         </Swiper>
       </div>
-
     </section>
   );
 };

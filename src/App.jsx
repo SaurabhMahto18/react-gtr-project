@@ -1,26 +1,45 @@
-import react from 'react'
-import NavBar from './NavBar.jsx'
-import './index.css';
-import HeroSection from './HeroSection.jsx';
-import { CoursesSection } from './CoursesSection.jsx';
-import AlumniSection from './AlumniSection.jsx'
-import {WhereOurStudentWork} from './WhereOurStudentWork.jsx';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import NavBar from "./components/NavBar";
+import HeroSection from "./components/HeroSection";
+import CoursesSection from "./components/CoursesSection";
+import AlumniSection from "./components/AlumniSection";
+import WhereOurStudentWork from "./components/WhereOurStudentWork";
+import CourseDetails from "./pages/CourseDetails"; 
 
+import "./index.css";
 
-// import AlumniSection from './AlumniSection.jsx';
 function App() {
-  
-
   return (
-    <>
-      <NavBar/>
-      <HeroSection/>
-      <CoursesSection/>
-      <AlumniSection/>
-      <WhereOurStudentWork/>
-    </>
-  )
+    <Router>
+      <NavBar />
+
+      <Routes>
+        {/* Home page */}
+        <Route
+          path="/"
+          element={
+            <>
+              <HeroSection />
+              <CoursesSection />
+              <AlumniSection />
+              <WhereOurStudentWork />
+            </>
+          }
+        />
+
+        {/* Course details page */}
+        <Route path="/courses" element={
+          <>
+          <CourseDetails /> 
+          <WhereOurStudentWork /> 
+          </>
+        }
+        />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
