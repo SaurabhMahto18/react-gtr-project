@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import img1 from "../assets/test-thumbnail1.jpg";
@@ -17,7 +16,7 @@ const images = [img1, img2, img3, img4];
 const testimonials = [
   {
     quote:
-      "My time in Simplilearn's program was results-oriented. It allowed me to kickstart my journey into data science through hands-on projects and live classes led by industry experts. Thanks to all the instructors and support staff.",
+      "My time in Simplilearn's program was results-oriented. It allowed me to kickstart my journey into data science through hands-on projects and live classes led by industry experts.",
     name: "Ronald Flores",
     image:
       "https://media.licdn.com/dms/image/v2/D4E03AQG48yIlHCBXoQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1676044589928?e=2147483647&v=beta&t=ba_XuXz3wY-bS9O5qoDgc7gKwJCTr3HRsFwdhjXJhio",
@@ -26,86 +25,62 @@ const testimonials = [
   },
   {
     quote:
-      "Simplilearn imparts excellent training, beneficial for both the career and personal life. The trainers are domain experts & eager to share their knowledge and experience.",
+      "Simplilearn imparts excellent training. The trainers are domain experts & eager to share their knowledge and experience.",
     name: "Mazen Ahmed",
     image:
       "https://assets.datacamp.com/users/avatars/001/189/228/original/timo-grossenbacher-2-small.jpg?1687955298",
     position: "Solutions Project Manager",
     company: "Philips Healthcare",
   },
-  {
-    quote:
-      "Enrolling at GTR was the best decision I made for my career. The mentorship, real-world projects, and career guidance helped me transition from a marketing background to a full-fledged software developer.",
-    name: "Samantha Lee",
-    image:
-      "https://thumbs.dreamstime.com/b/student-woman-thinking-open-books-pondering-girl-glasses-learning-exam-studying-looking-up-over-gray-background-57489975.jpg",
-    company: "TechNova Inc.",
-    position: "Frontend Developer",
-  },
-  {
-    quote:
-      "GTR’s Data Science program didn’t just teach me how to code — it taught me how to think like a problem solver. From Python and SQL to machine learning, I gained the skills that landed me my first data science role, even without a tech degree.",
-    name: "Rajiv Mehra",
-    image:
-      "https://allofinsta.com/wp-content/uploads/2024/09/Boy-medical-student-dp-idea-for-Insta.webp",
-    company: "InnoData Analytics",
-    position: "Data Scientist",
-  },
-  {
-    quote:
-      "The career support at GTR exceeded my expectations. Resume reviews, mock interviews, and personal mentorship gave me the edge I needed. Within a month of graduation, I received offers from three different companies.",
-    name: "Elena Garcia",
-    image:
-      "https://media.istockphoto.com/id/524897008/photo/happy-young-indian-girl-college-graduate.jpg?s=612x612&w=0&k=20&c=J20bxGQDGlYtU0zgKyytQu9hXmNsaaHbdFKk8YpnXsI=",
-    company: "BrightApps",
-    position: "Software Engineer",
-  },
-  {
-    quote:
-      "Before GTR, I was stuck in a job with no growth. Their Full Stack Web Development bootcamp was intense but incredibly rewarding. The live sessions, capstone project, and 24/7 support made all the difference. Now I work at a company I used to dream of.",
-    name: "David Kim",
-    image:
-      "https://media.gettyimages.com/id/896458302/photo/young-man-graduating-from-high-school-or-university.jpg?s=612x612&w=gi&k=20&c=ngE5OArd1vZxA162B4aq2ktLgJxEo9TxNw5MRV8ZU08=",
-    company: "CodeSprint",
-    position: "Full Stack Developer",
-  },
-  {
-    quote:
-      "What stood out to me at GTR was the emphasis on practical learning. We didn’t just learn concepts—we built real applications and deployed them. That hands-on experience was exactly what recruiters were looking for.",
-    name: "Fatima Al-Rashid",
-    image:
-      "https://imgcdn.stablediffusionweb.com/2024/11/22/22707987-a7f1-46d6-8ca3-526b7e25b896.jpg",
-    company: "NextGenTech",
-    position: "Junior Backend Engineer",
-  },
+  
 ];
 
 const AlumniSection = () => {
+  const imageSwiperRef = useRef(null);
+  const testimonialSwiperRef = useRef(null);
+
   return (
     <section className="bg-white py-12">
       <div className="max-w-[1360px] mx-auto px-4">
-        {/* Header & Stats */}
-        <div className="mb-10 flex justify-between">
-          <div className="text-left mt-8 flex flex-col">
+        {/* Header & Image Swiper */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-10">
+          {/* Text Content */}
+          <div className="w-full text-center md:w-1/2 md:text-start order-1 md:order-2 mt-4 md:mt-8">
             <p className="text-xl font-medium">Hear It</p>
             <p className="text-3xl font-semibold text-blue-800">
               from our Alumni
             </p>
-            <div className="text-start mt-8">
+
+            <div className="mt-8">
               <p className="text-4xl text-blue-600 font-bold">10,000+</p>
               <p className="text-2xl font-medium">Students Trained</p>
             </div>
-            <div className="text-start mt-4">
+
+            <div className="mt-4">
               <p className="text-4xl text-blue-600 font-bold">9,200+</p>
               <p className="text-2xl font-medium">Facilitated Placements</p>
             </div>
           </div>
 
-          <div className="w-full max-w-2xl">
+          {/* Image Swiper */}
+          <div className="w-full md:w-1/2 order-1 md:order-2 relative">
+            {/* Arrows */}
+            <div className="hidden md:flex absolute -left-10 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer">
+              <FaArrowLeft
+                size={24}
+                onClick={() => imageSwiperRef.current?.slidePrev()}
+              />
+            </div>
+            <div className="hidden md:flex absolute -right-10 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer">
+              <FaArrowRight
+                size={24}
+                onClick={() => imageSwiperRef.current?.slideNext()}
+              />
+            </div>
+
             <Swiper
-              modules={[Pagination, Navigation, Autoplay]}
-              navigation
-              pagination={{clickable : true}}
+              modules={[Pagination, Autoplay]}
+              pagination={{ clickable: true }}
               autoplay={{ delay: 2500 }}
               loop
               speed={1200}
@@ -115,12 +90,12 @@ const AlumniSection = () => {
                 640: {
                   slidesPerView: 3,
                 },
-                
               }}
+              onSwiper={(swiper) => (imageSwiperRef.current = swiper)}
             >
               {images.map((src, index) => (
                 <SwiperSlide key={index}>
-                  <div className="w-full aspect-[9/16] overflow-hidden rounded-xl shadow">
+                  <div className="w-full aspect-[9/16] overflow-hidden rounded-xl shadow-md">
                     <img
                       src={src}
                       alt={`Image ${index + 1}`}
@@ -130,62 +105,86 @@ const AlumniSection = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
+
+            {/* Mobile Arrows */}
+            <div className="flex  justify-center gap-6 mt-4 md:hidden">
+              <button onClick={() => imageSwiperRef.current?.slidePrev()}>
+                <FaArrowLeft size={20} />
+              </button>
+              <button onClick={() => imageSwiperRef.current?.slideNext()}>
+                <FaArrowRight size={20} />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Swiper Testimonials */}
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 3000 }}
-          speed={1500}
-          spaceBetween={30}
-          slidesPerView={1}
-          breakpoints={{
-            768: {
-              slidesPerView: 1,
-            },
-          }}
-          loop
-        >
-          {Array.from({ length: Math.ceil(testimonials.length / 2) }).map(
-            (_, i) => (
+        {/* Testimonial Swiper */}
+        <div className="relative">
+          {/* Desktop Arrows */}
+          <div className="hidden md:flex absolute -left-10 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer">
+            <FaArrowLeft
+              size={24}
+              onClick={() => testimonialSwiperRef.current?.slidePrev()}
+            />
+          </div>
+          <div className="hidden md:flex absolute -right-10 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer">
+            <FaArrowRight
+              size={24}
+              onClick={() => testimonialSwiperRef.current?.slideNext()}
+            />
+          </div>
+
+          <Swiper
+            modules={[Autoplay]}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000 }}
+            speed={1500}
+            spaceBetween={30}
+            loop
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+            }}
+            onSwiper={(swiper) => (testimonialSwiperRef.current = swiper)}
+          >
+            {testimonials.map((item, i) => (
               <SwiperSlide key={i}>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {testimonials.slice(i, i + 2).map((item, j) => (
-                    <div
-                      key={j}
-                      className="flex flex-col justify-between h-full border shadow-md border-b-4 border-b-blue-600 p-6 rounded-md bg-white"
-                    >
-                      <p className="text-gray-700 italic mb-4">
-                        "{item.quote}"
+                <div className="flex flex-col justify-between h-[20rem] md:h-[14rem] border shadow-md border-b-4 border-b-blue-600 p-6 rounded-md bg-white">
+                  <p className="text-gray-700 italic mb-4">"{item.quote}"</p>
+                  <div className="flex items-center gap-4 mt-auto pt-4">
+                    <img
+                      src={item.image || "https://via.placeholder.com/80"}
+                      alt={item.name}
+                      className="w-16 h-16 rounded-full object-cover shadow-md"
+                    />
+                    <div>
+                      <p className="text-blue-800 font-semibold">
+                        - {item.name}
                       </p>
-                      <div className="flex items-center gap-4 mt-auto pt-4 ">
-                        <img
-                          src={item.image || "https://via.placeholder.com/80"}
-                          alt={item.name}
-                          className="w-16 h-16 rounded-full object-cover shadow-md"
-                        />
-                        <div>
-                          <p className="text-blue-800 font-semibold">
-                            - {item.name}
-                          </p>
-                          <p>
-                            {item.position} -{" "}
-                            <span className="font-semibold">
-                              {item.company}
-                            </span>
-                          </p>
-                        </div>
-                      </div>
+                      <p>
+                        {item.position} -{" "}
+                        <span className="font-semibold">{item.company}</span>
+                      </p>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </SwiperSlide>
-            )
-          )}
-        </Swiper>
+            ))}
+          </Swiper>
+          {/* Mobile Arrows */}
+          <div className="flex justify-center gap-6 mt-6 md:hidden">
+            <button onClick={() => testimonialSwiperRef.current?.slidePrev()}>
+              <FaArrowLeft size={20} />
+            </button>
+            <button onClick={() => testimonialSwiperRef.current?.slideNext()}>
+              <FaArrowRight size={20} />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

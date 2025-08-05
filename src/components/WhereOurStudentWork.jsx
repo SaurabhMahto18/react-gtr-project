@@ -26,10 +26,10 @@ const companies = [
 const WhereOurStudentWork = () => {
   return (
     <section className="bg-[#f0f6ff] py-12 px-6 h-[90vh]">
-        <div className="max-w-[1360px] mx-auto flex flex-col justify-around lg:flex-row items-center lg:items-start gap-0">
+        <div className="max-w-[1360px] mx-auto h-auto flex flex-col justify-around lg:flex-row items-center lg:items-start gap-0">
           {/* Left Section */}
 
-          <div className="text-start mt-10 flex-1 space-y-8">
+          <div className="text-center md:text-start mt-10 flex-1 space-y-8">
             <h2 className="text-4xl font-bold text-gray-800">
               Where our students work
             </h2>
@@ -38,11 +38,11 @@ const WhereOurStudentWork = () => {
               professionals, and leading organizations.
             </p>
             <div className="space-y-5">
-              <button className="w-[16rem] bg-gradient-to-b from-blue-600 to-blue-800 text-white font-semibold py-3 px-6 rounded-md shadow-md hover:opacity-90">
+              <button className="w-full md:w-[16rem] bg-gradient-to-b from-blue-600 to-blue-800 text-white font-semibold py-3 px-6 rounded-md shadow-md hover:opacity-90">
                 Book a Free Demo
               </button>
               <br />
-              <button className="w-[16rem] bg-gradient-to-b from-gray-700 to-gray-900 text-white font-semibold py-3 px-6 rounded-md shadow-md hover:bg-gray-800">
+              <button className="w-full md:w-[16rem] bg-gradient-to-b from-gray-700 to-gray-900 text-white font-semibold py-3 px-6 rounded-md shadow-md hover:bg-gray-800">
                 Live Placements
               </button>
             </div>
@@ -50,7 +50,7 @@ const WhereOurStudentWork = () => {
 
           {/* Right Section */}
 
-          <div className="flex-1 p-12 py-12 rounded-xl w-full bg-cover bg-center" style={{backgroundImage:`url(${worldMapImg})`}} >
+          <div className="flex-1 p-12 mt-12 md:mt-0 py-12 rounded-xl w-full bg-cover bg-center" style={{backgroundImage:`url(${worldMapImg})`}} >
             <h3 className="text-2xl font-semibold text-gray-700 mb-6 text-center lg:text-left">
               Supporting Enterprises Around the Globe
             </h3>

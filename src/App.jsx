@@ -7,8 +7,11 @@ import CoursesSection from "./components/CoursesSection";
 import AlumniSection from "./components/AlumniSection";
 import WhereOurStudentWork from "./components/WhereOurStudentWork";
 import CourseDetails from "./pages/CourseDetails"; 
+import AllCoursesPage from "./pages/AllCoursesPage";
+import CourseDetail from "./pages/CourseDetail";
 
 import "./index.css";
+import GTRAcademyChatbot from "./components/GTRAcademyChatbot";
 
 function App() {
   return (
@@ -25,6 +28,7 @@ function App() {
               <CoursesSection />
               <AlumniSection />
               <WhereOurStudentWork />
+              {/* <GTRAcademyChatbot/> */}
             </>
           }
         />
@@ -37,6 +41,8 @@ function App() {
           </>
         }
         />
+        <Route path="/all-courses" element={<AllCoursesPage />} />
+        <Route path="/courses/:slug" element={<> <CourseDetail /> <WhereOurStudentWork /> </>} />
       </Routes>
     </Router>
   );

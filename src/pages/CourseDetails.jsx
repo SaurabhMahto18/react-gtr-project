@@ -182,7 +182,7 @@ export default function CourseDetails() {
               <h3 className="text-xl font-semibold uppercase">Online Training</h3>
               <h2 className="text-3xl font-extrabold">Generative AI</h2>
               <p className="uppercase">Transition to it | Upskill <br/>Yourself | Secure Your Future</p>
-              <p className="bg-gradient-to-l from-gray-200 to-gray-400 text-blue-800 inline-block px-4 py-1 font-semibold rounded-lg text-xl">
+              <p className="bg-gradient-to-b from-gray-200 to-white-400 text-blue-800 inline-block px-4 py-1 font-semibold rounded-lg text-xl">
                 100% Placement Assistance
               </p>
               <ul className="text-md space-y-2 pt-2 list-disc ml-4">
